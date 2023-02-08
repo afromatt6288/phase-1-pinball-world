@@ -48,8 +48,11 @@ function highScore() {
     let highScoreForm = document.querySelector("#high-score-form")
     highScoreForm.addEventListener('submit', (e) => {
         e.preventDefault()
-        
+
+        if (currentGame.high_score > gameHighScore.textContent) {        
         currentGame.high_score = parseInt(e.target["score-input"].value)
+        } 
+        
         renderGameDetails(currentGame)
         highScoreForm.reset()
         console.log(currentGame)
